@@ -1,9 +1,5 @@
+// Login.js
 import React, { useState } from "react";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import { Alert, AlertDescription } from "@/components/ui/alert";
-import { Trees, Gift, Snowflake } from "lucide-react";
 
 function Login({ onLogin }) {
   const [username, setUsername] = useState("");
@@ -18,7 +14,6 @@ function Login({ onLogin }) {
     }
   };
 
-  // Handle Enter key press
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') {
       handleLogin();
@@ -27,69 +22,49 @@ function Login({ onLogin }) {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-red-100 to-green-100 flex items-center justify-center p-4">
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        {[...Array(20)].map((_, i) => (
-          <Snowflake
-            key={i}
-            className="absolute text-white opacity-40 animate-bounce"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${3 + Math.random() * 2}s`
-            }}
-            size={12}
-          />
-        ))}
-      </div>
-      
-      <Card className="w-full max-w-md bg-white/95 backdrop-blur-sm shadow-xl">
-        <CardHeader className="space-y-1 text-center">
-          <div className="flex justify-center gap-2 text-red-600 mb-2">
-            <Trees className="h-6 w-6" />
-            <Gift className="h-6 w-6" />
-            <Trees className="h-6 w-6" />
+      <div className="login-card">
+        <div className="login-header">
+          <div className="icon-container">
+            <span className="tree-icon">🎄</span>
+            <span className="gift-icon">🎁</span>
+            <span className="tree-icon">🎄</span>
           </div>
-          <CardTitle className="text-2xl font-bold text-red-600">
-            Holiday Login
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="space-y-2">
-            <Input
+          <h2 className="login-title">Holiday Login</h2>
+        </div>
+        <div className="login-content">
+          <div className="input-group">
+            <input
               type="text"
               placeholder="Username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               onKeyPress={handleKeyPress}
-              className="border-2 border-green-200 focus:border-green-400"
+              className="login-input"
             />
           </div>
-          <div className="space-y-2">
-            <Input
+          <div className="input-group">
+            <input
               type="password"
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               onKeyPress={handleKeyPress}
-              className="border-2 border-green-200 focus:border-green-400"
+              className="login-input"
             />
           </div>
-          
-          <Button 
+          <button
             onClick={handleLogin}
-            className="w-full bg-red-600 hover:bg-red-700 text-white"
+            className="login-button"
           >
             Sign In
-          </Button>
-
+          </button>
           {error && (
-            <Alert variant="destructive" className="mt-4">
-              <AlertDescription>{error}</AlertDescription>
-            </Alert>
+            <div className="error-message">
+              {error}
+            </div>
           )}
-        </CardContent>
-      </Card>
+        </div>
+      </div>
     </div>
   );
 }
