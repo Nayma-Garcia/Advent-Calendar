@@ -1,97 +1,88 @@
-import React, { useState } from "react";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import { Alert, AlertDescription } from "@/components/ui/alert";
-import { Trees, Gift, Snowflake } from "lucide-react";
+import React, { useState } from 'react';
+import './styles.css';
+import DateCard from './DateCard';
+import Countdown from './Countdown';
 
+const treeStructure = [
+  [1],
+  [2, 3],
+  [4, 5, 6],
+  [7, 8, 9, 10],
+  [11, 12, 13, 14, 15],
+  [16, 17, 18, 19, 20, 21],
+  [22, 23, 24]
+];
+
+// Create the Login component inside App.js for simplicity
 function Login({ onLogin }) {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
   const handleLogin = () => {
-    if (username === "jori" && password === "feauto") {
-      onLogin();
+    if (username === 'jori' && password === 'feauto') {
+      onLogin(); // Calls the function to load the main content
     } else {
-      setError("Incorrect username or password");
-    }
-  };
-
-  // Handle Enter key press
-  const handleKeyPress = (e) => {
-    if (e.key === 'Enter') {
-      handleLogin();
+      setError('Incorrect username or password');
     }
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-red-100 to-green-100 flex items-center justify-center p-4">
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        {[...Array(20)].map((_, i) => (
-          <Snowflake
-            key={i}
-            className="absolute text-white opacity-40 animate-bounce"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${3 + Math.random() * 2}s`
-            }}
-            size={12}
-          />
-        ))}
-      </div>
-      
-      <Card className="w-full max-w-md bg-white/95 backdrop-blur-sm shadow-xl">
-        <CardHeader className="space-y-1 text-center">
-          <div className="flex justify-center gap-2 text-red-600 mb-2">
-            <Trees className="h-6 w-6" />
-            <Gift className="h-6 w-6" />
-            <Trees className="h-6 w-6" />
-          </div>
-          <CardTitle className="text-2xl font-bold text-red-600">
-            Holiday Login
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="space-y-2">
-            <Input
-              type="text"
-              placeholder="Username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              onKeyPress={handleKeyPress}
-              className="border-2 border-green-200 focus:border-green-400"
-            />
-          </div>
-          <div className="space-y-2">
-            <Input
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              onKeyPress={handleKeyPress}
-              className="border-2 border-green-200 focus:border-green-400"
-            />
-          </div>
-          
-          <Button 
-            onClick={handleLogin}
-            className="w-full bg-red-600 hover:bg-red-700 text-white"
-          >
-            Sign In
-          </Button>
-
-          {error && (
-            <Alert variant="destructive" className="mt-4">
-              <AlertDescription>{error}</AlertDescription>
-            </Alert>
-          )}
-        </CardContent>
-      </Card>
+    <div className="login-container">
+      <h2>Login</h2>
+      <input
+        type="text"
+        placeholder="Username"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+      />
+      <input
+        type="password"
+        placeholder="Password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
+      <button onClick={handleLogin}>Login</button>
+      {error && <p style={{ color: 'red' }}>{error}</p>}
     </div>
   );
 }
 
-export default Login;
+function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  const handleLogin = () => {
+    setIsAuthenticated(true);
+  };
+
+  return (
+    <div className="page-container">
+      {isAuthenticated ? (
+        <>
+          <div className="snowfall">
+            {/* Generate 50 snowflakes for a good effect */}
+            {[...Array(50)].map((_, index) => (
+              <div key={index} className="snowflake"></div>
+            ))}
+          </div>
+          <div className="calendar">
+            <div className="tree">
+              {treeStructure.map((row, rowIndex) => (
+                <div key={rowIndex} className="row">
+                  {row.map((day) => (
+                    <DateCard key={day} day={day} />
+                  ))}
+                </div>
+              ))}
+            </div>
+            <Countdown />
+          </div>
+        </>
+      ) : (
+        <Login onLogin={handleLogin} />
+      )}
+    </div>
+  );
+}
+
+export default App;
