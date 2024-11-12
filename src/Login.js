@@ -29,7 +29,7 @@ function Login({ onLogin }) {
             <span className="gift-icon">🎁</span>
             <span className="tree-icon">🎄</span>
           </div>
-          <h2 className="login-title">Holiday Login</h2>
+          <h2 className="login-title">Welcome Jori</h2>
         </div>
         <div className="login-content">
           <div className="input-group">
