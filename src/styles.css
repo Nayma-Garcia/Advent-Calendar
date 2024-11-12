@@ -1,352 +1,452 @@
 /* Body styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #1e2a47;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
-    padding: 20px;
-  }
-  
-  /* Calendar container */
-  .calendar {
-    text-align: center;
-    width: 100%;
-    max-width: 900px; /* Increased to accommodate larger cards */
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  /* Tree (date cards) layout */
-  .tree {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px; /* Increased gap between rows */
-    padding: 20px;
-    margin: 0 auto;
-  }
-  
-  /* Each row of cards */
-  .row {
-    display: flex;
-    gap: 15px; /* Increased gap between cards */
-    justify-content: center;
-  }
-  
-  /* Date card styles */
-  .date-card {
-    width: 100px; /* Increased from 70px */
-    height: 100px; /* Increased from 70px */
-    background-color: #2d4a43; /* Muted green */
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: transform 0.3s, background-color 0.3s;
-    font-size: 32px; /* Increased font size */
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Muted color variations for each card */
-  .date-card:nth-child(4n) { background-color: #6b4242; }
-  .date-card:nth-child(4n+1) { background-color: #2d4a43; }
-  .date-card:nth-child(4n+2) { background-color: #5c4a2d; }
-  .date-card:nth-child(4n+3) { background-color: #4a4a4a; }
-  
-  .date-card.open {
-    transform: scale(1.05);
-    background-color: #3d5a53; /* Slightly lighter when opened */
-    z-index: 1;
-  }
-  
-  /* Countdown styling */
-  .countdown {
-    margin-top: 30px; /* Adds space below the tree */
-    font-size: 24px;
-    color: #9ca3af; /* Muted color for countdown text */
-  }
-  
-  .countdown p {
-    color: #9ca3af;
-  }
-  
-  /* Row-specific styling for date cards */
-  .row:nth-child(1) { width: 100px; }
-  .row:nth-child(2) { width: 215px; }
-  .row:nth-child(3) { width: 330px; }
-  .row:nth-child(4) { width: 445px; }
-  .row:nth-child(5) { width: 560px; }
-  .row:nth-child(6) { width: 675px; }
-  .row:nth-child(7) { width: 330px; }
-  
-  /* Modal, hover, and other styling remains unchanged */
-  
-  /* Optional: Add a nice transition for the original cards */
-  .date-card {
-    transform-origin: center;
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-                background-color 0.3s ease;
-  }
-  
-  .date-card:hover {
-    transform: translateY(-5px);
-  }
-  
-  .page-container {
-    position: relative;
-    width: 100%;
-    min-height: 100vh;
-    padding: 20px;
-  }
-  
-  /* Countdown box styles */
+  font-family: Arial, sans-serif;
+  background-color: #1e2a47;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+}
+
+/* Calendar container */
+.calendar {
+  text-align: center;
+  width: 100%;
+  max-width: 900px; /* Increased to accommodate larger cards */
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Tree (date cards) layout */
+.tree {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px; /* Increased gap between rows */
+  padding: 20px;
+  margin: 0 auto;
+}
+
+/* Each row of cards */
+.row {
+  display: flex;
+  gap: 15px; /* Increased gap between cards */
+  justify-content: center;
+}
+
+/* Date card styles */
+.date-card {
+  width: 100px; /* Increased from 70px */
+  height: 100px; /* Increased from 70px */
+  background-color: #2d4a43; /* Muted green */
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.3s, background-color 0.3s;
+  font-size: 32px; /* Increased font size */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Muted color variations for each card */
+.date-card:nth-child(4n) { background-color: #6b4242; }
+.date-card:nth-child(4n+1) { background-color: #2d4a43; }
+.date-card:nth-child(4n+2) { background-color: #5c4a2d; }
+.date-card:nth-child(4n+3) { background-color: #4a4a4a; }
+
+.date-card.open {
+  transform: scale(1.05);
+  background-color: #3d5a53; /* Slightly lighter when opened */
+  z-index: 1;
+}
+
+/* Countdown styling */
+.countdown {
+  margin-top: 30px; /* Adds space below the tree */
+  font-size: 24px;
+  color: #9ca3af; /* Muted color for countdown text */
+}
+
+.countdown p {
+  color: #9ca3af;
+}
+
+/* Row-specific styling for date cards */
+.row:nth-child(1) { width: 100px; }
+.row:nth-child(2) { width: 215px; }
+.row:nth-child(3) { width: 330px; }
+.row:nth-child(4) { width: 445px; }
+.row:nth-child(5) { width: 560px; }
+.row:nth-child(6) { width: 675px; }
+.row:nth-child(7) { width: 330px; }
+
+/* Modal, hover, and other styling remains unchanged */
+
+/* Optional: Add a nice transition for the original cards */
+.date-card {
+  transform-origin: center;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              background-color 0.3s ease;
+}
+
+.date-card:hover {
+  transform: translateY(-5px);
+}
+
+.page-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Countdown box styles */
+.countdown-boxes {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.countdown-box {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 15px;
+  border-radius: 10px;
+  min-width: 70px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.countdown-number {
+  font-size: 32px;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+.countdown-label {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
+}
+
+/* Make countdown responsive */
+@media (max-width: 768px) {
   .countdown-boxes {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
+    flex-wrap: wrap;
   }
-  
+
   .countdown-box {
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: 15px;
-    border-radius: 10px;
-    min-width: 70px;
-    text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    min-width: 60px;
   }
-  
-  .countdown-number {
-    font-size: 32px;
-    font-weight: bold;
-    color: #fff;
-    margin-bottom: 5px;
+}
+
+/* Modal and close button styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.modal-content {
+  position: relative;
+  animation: slideUp 0.5s ease-out;
+}
+
+.modal-card {
+  background-color: #2d4a43;
+  padding: 30px;
+  border-radius: 15px;
+  width: 400px;
+  max-width: 90vw;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.modal-number {
+  font-size: 48px;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.modal-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.modal-message {
+  font-size: 24px;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 28px;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s;
+}
+
+.modal-close:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
-  
-  .countdown-label {
-    font-size: 14px;
-    color: rgba(255, 255, 255, 0.8);
-    text-transform: uppercase;
+  to {
+    opacity: 1;
   }
-  
-  /* Make countdown responsive */
-  @media (max-width: 768px) {
-    .countdown-boxes {
-      flex-wrap: wrap;
-    }
-  
-    .countdown-box {
-      min-width: 60px;
-    }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
   }
-  
-  /* Modal and close button styles */
-  .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.75);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-    animation: fadeIn 0.3s ease-out;
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
-  
-  .modal-content {
-    position: relative;
-    animation: slideUp 0.5s ease-out;
-  }
-  
-  .modal-card {
-    background-color: #2d4a43;
-    padding: 30px;
-    border-radius: 15px;
-    width: 400px;
-    max-width: 90vw;
-    position: relative;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-  }
-  
-  .modal-number {
-    font-size: 48px;
-    font-weight: bold;
-    color: #fff;
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  
-  .modal-image {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 20px;
-  }
-  
-  .modal-message {
-    font-size: 24px;
-    color: #fff;
-    text-align: center;
-    margin-bottom: 20px;
-    line-height: 1.4;
-  }
-  
-  .modal-close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: none;
-    border: none;
-    color: #fff;
-    font-size: 28px;
-    cursor: pointer;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.3s;
-  }
-  
-  .modal-close:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-  }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-  
-  @keyframes slideUp {
-    from {
-      transform: translateY(50px);
-      opacity: 0;
-    }
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-  
-  /* Hover effect for date cards */
-  .date-card:hover {
-    filter: brightness(1.1);
-  }
+}
+
+/* Hover effect for date cards */
+.date-card:hover {
+  filter: brightness(1.1);
+}
 /* Snowfall effect */
 @keyframes snowflakes {
-    0% {
-        transform: translateY(-100px);
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(calc(100vh + 100px)); /* Faster fall */
-        opacity: 0;
-    }
+  0% {
+      transform: translateY(-100px);
+      opacity: 1;
+  }
+  100% {
+      transform: translateY(calc(100vh + 100px)); /* Faster fall */
+      opacity: 0;
+  }
 }
 
 .snowfall {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: -1;
-    pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  pointer-events: none;
 }
 
 /* Snowflake styling */
 .snowflake {
-    position: absolute;
-    top: -10px;
-    width: 8px; /* Increase size of snowflakes */
-    height: 8px; /* Increase size of snowflakes */
-    background-color: white;
-    border-radius: 50%;
-    opacity: 0.8;
-    animation: snowflakes linear infinite;
+  position: absolute;
+  top: -10px;
+  width: 8px; /* Increase size of snowflakes */
+  height: 8px; /* Increase size of snowflakes */
+  background-color: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: snowflakes linear infinite;
 }
 
 /* Different sizes and speeds for snowflakes */
 .snowflake:nth-child(1) {
-    animation-duration: 3s; /* Faster fall */
-    animation-delay: 0s;
-    left: 10%;
-    animation-timing-function: ease-in;
+  animation-duration: 3s; /* Faster fall */
+  animation-delay: 0s;
+  left: 10%;
+  animation-timing-function: ease-in;
 }
 
 .snowflake:nth-child(2) {
-    animation-duration: 4s; /* Faster fall */
-    animation-delay: 0.5s; /* Reduced delay to increase frequency */
-    left: 25%;
-    animation-timing-function: ease-out;
+  animation-duration: 4s; /* Faster fall */
+  animation-delay: 0.5s; /* Reduced delay to increase frequency */
+  left: 25%;
+  animation-timing-function: ease-out;
 }
 
 .snowflake:nth-child(3) {
-    animation-duration: 5s; /* Faster fall */
-    animation-delay: 1s;
-    left: 50%;
-    animation-timing-function: ease-in;
+  animation-duration: 5s; /* Faster fall */
+  animation-delay: 1s;
+  left: 50%;
+  animation-timing-function: ease-in;
 }
 
 .snowflake:nth-child(4) {
-    animation-duration: 3.5s; /* Faster fall */
-    animation-delay: 1.5s; /* Reduced delay to increase frequency */
-    left: 70%;
-    animation-timing-function: ease-out;
+  animation-duration: 3.5s; /* Faster fall */
+  animation-delay: 1.5s; /* Reduced delay to increase frequency */
+  left: 70%;
+  animation-timing-function: ease-out;
 }
 
 .snowflake:nth-child(5) {
-    animation-duration: 6s; /* Faster fall */
-    animation-delay: 2s;
-    left: 85%;
-    animation-timing-function: ease-in;
+  animation-duration: 6s; /* Faster fall */
+  animation-delay: 2s;
+  left: 85%;
+  animation-timing-function: ease-in;
 }
 
 .snowflake:nth-child(6) {
-    animation-duration: 2.5s; /* Faster fall */
-    animation-delay: 2.5s; /* Reduced delay to increase frequency */
-    left: 15%;
-    animation-timing-function: ease-out;
+  animation-duration: 2.5s; /* Faster fall */
+  animation-delay: 2.5s; /* Reduced delay to increase frequency */
+  left: 15%;
+  animation-timing-function: ease-out;
 }
 
 .snowflake:nth-child(7) {
-    animation-duration: 3.5s; /* Faster fall */
-    animation-delay: 3s;
-    left: 40%;
-    animation-timing-function: ease-in;
+  animation-duration: 3.5s; /* Faster fall */
+  animation-delay: 3s;
+  left: 40%;
+  animation-timing-function: ease-in;
 }
 
 .snowflake:nth-child(8) {
-    animation-duration: 4.5s; /* Faster fall */
-    animation-delay: 3.5s; /* Reduced delay to increase frequency */
-    left: 60%;
-    animation-timing-function: ease-out;
+  animation-duration: 4.5s; /* Faster fall */
+  animation-delay: 3.5s; /* Reduced delay to increase frequency */
+  left: 60%;
+  animation-timing-function: ease-out;
 }
 
 .snowflake:nth-child(9) {
-    animation-duration: 5s; /* Faster fall */
-    animation-delay: 4s;
-    left: 75%;
-    animation-timing-function: ease-in;
+  animation-duration: 5s; /* Faster fall */
+  animation-delay: 4s;
+  left: 75%;
+  animation-timing-function: ease-in;
 }
 
 .snowflake:nth-child(10) {
-    animation-duration: 4s; /* Faster fall */
-    animation-delay: 4.5s;
-    left: 90%;
-    animation-timing-function: ease-out;
+  animation-duration: 4s; /* Faster fall */
+  animation-delay: 4.5s;
+  left: 90%;
+  animation-timing-function: ease-out;
 }
+/* General page styling */
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to bottom, #ffecec, #b6f3b6);
+  position: relative;
+  overflow: hidden;
+  padding: 20px;
+}
+
+/* Snowflake styling */
+.snowflakes .snowflake {
+  position: absolute;
+  color: #ffffff;
+  opacity: 0.8;
+  animation: fall 10s linear infinite;
+}
+
+@keyframes fall {
+  from {
+    transform: translateY(-100px);
+  }
+  to {
+    transform: translateY(100vh);
+  }
+}
+
+/* Login card styling */
+.login-card {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  padding: 20px;
+  width: 100%;
+  max-width: 320px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  backdrop-filter: blur(5px);
+}
+
+.icon-row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  color: #d00000;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+}
+
+.login-title {
+  font-size: 24px;
+  color: #d00000;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+/* Input styling */
+.login-input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 2px solid #b6f3b6;
+  border-radius: 4px;
+  outline: none;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+.login-input:focus {
+  border-color: #228b22;
+}
+
+/* Button styling */
+.login-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #d00000;
+  color: #ffffff;
+  font-size: 18px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.login-button:hover {
+  background-color: #a00000;
+}
+
+/* Error message */
+.login-error {
+  color: #d00000;
+  margin-top: 10px;
+}
+
